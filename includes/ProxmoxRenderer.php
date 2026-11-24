@@ -691,9 +691,9 @@ class ProxmoxRenderer {
 		$table = (new CTableInfo())
 			->setHeader([
 				_('Name'),
-				_('Last check'),
 				_('Last value'),
 				_('Change'),
+				_('Last check'),
 				_('Info'),
 				''
 			])
@@ -769,9 +769,9 @@ class ProxmoxRenderer {
 
 			$table->addRow([
 				(new CCol($name_col))->addClass(ZBX_STYLE_WORDBREAK),
-				ProxmoxHtml::nowrapCol($last_check),
 				(new CCol($last_value))->addClass(ZBX_STYLE_NOWRAP),
 				ProxmoxHtml::nowrapCol($change),
+				ProxmoxHtml::nowrapCol($last_check),
 				makeInformationList($info),
 				ProxmoxHtml::nowrapCol($action)
 			]);

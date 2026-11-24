@@ -292,7 +292,10 @@ class ProxmoxData {
 					'id' => (string) $id,
 					'name' => self::objectName($type, $id, $tags),
 					'node' => $tags['node'] ?? '',
-					'vmid' => in_array($type, [self::TYPE_LXC, self::TYPE_QEMU]) ? (string) $id : '',
+					// The template takes the ID from the API "id" field, for example "qemu/407".
+					'vmid' => in_array($type, [self::TYPE_LXC, self::TYPE_QEMU])
+						? preg_replace('/^(qemu|lxc)\//', '', (string) $id)
+						: '',
 					'itemids' => [],
 					'metrics' => [],
 					'problems' => []

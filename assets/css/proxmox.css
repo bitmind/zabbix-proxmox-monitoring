@@ -444,13 +444,16 @@ li.pve-nav-selected .pve-nav-link {
 	gap: 6px;
 }
 
-.pve-cards {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+.pve-cards,
+.pve-visuals,
+.pve-counters {
+	display: flex;
+	flex-wrap: wrap;
 	gap: 6px;
 }
 
 .pve-card {
+	flex: 1 1 140px;
 	min-width: 0;
 	padding: 5px 8px;
 	border: 1px solid var(--pve-tile-border);
@@ -520,13 +523,8 @@ li.pve-nav-selected .pve-nav-link {
 	font-weight: bold;
 }
 
-.pve-visuals {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-	gap: 6px;
-}
-
 .pve-visual {
+	flex: 1 1 170px;
 	display: flex;
 	flex-direction: column;
 	min-width: 0;
@@ -583,13 +581,8 @@ li.pve-nav-selected .pve-nav-link {
 }
 
 /* General tab counters */
-.pve-counters {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-	gap: 6px;
-}
-
 .pve-counter {
+	flex: 1 1 130px;
 	padding: 6px 8px;
 	border: 1px solid var(--pve-tile-border);
 	border-radius: 2px;
@@ -621,4 +614,63 @@ li.pve-nav-selected .pve-nav-link {
 .pve-problems,
 .pve-latest {
 	width: 100%;
+}
+
+/* Keep module links in their own colors in every state: the themes restyle a:visited, a:focus and a:active. */
+a.pve-nav-link,
+a.pve-nav-link:link,
+a.pve-nav-link:visited,
+a.pve-nav-link:focus,
+a.pve-nav-link:active,
+.pve-tabs li a:visited,
+.pve-tabs li a:focus,
+.pve-tabs li a:active {
+	color: var(--pve-text);
+	border-bottom-width: 0;
+	outline: none;
+}
+
+.pve-tabs li a:visited,
+.pve-tabs li a:focus,
+.pve-tabs li a:active {
+	border-bottom: 2px solid transparent;
+}
+
+.pve-tabs li.pve-tab-active a,
+.pve-tabs li.pve-tab-active a:visited,
+.pve-tabs li.pve-tab-active a:focus {
+	color: var(--pve-accent);
+	border-bottom-color: var(--pve-accent);
+}
+
+.pve-tabs li a:hover {
+	color: var(--pve-accent);
+}
+
+a.pve-nav-link:focus-visible {
+	box-shadow: inset 0 0 0 1px var(--pve-accent);
+}
+
+.pve-card-value a.pve-value-link,
+.pve-card-value a.pve-value-link:visited,
+.pve-card-value a.pve-value-link:focus,
+.pve-card-value a.pve-value-link:active {
+	color: var(--pve-text);
+	border-bottom: 1px dotted var(--pve-muted);
+}
+
+.pve-card-value a.pve-value-link:hover {
+	color: var(--pve-accent);
+}
+
+.pve-visual-label a,
+.pve-visual-label a:visited,
+.pve-visual-label a:focus,
+.pve-visual-label a:active {
+	color: var(--pve-muted);
+	border-bottom: 0;
+}
+
+.pve-visual-label a:hover {
+	color: var(--pve-accent);
 }
