@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2.0,
+	"id": "proxmox_monitoring",
+	"name": "Proxmox monitoring",
+	"version": "0.1.0",
+	"namespace": "ProxmoxMonitoring",
+	"author": "bitmind",
+	"description": "Proxmox VE overview for hosts monitored with the official template \"Proxmox VE by HTTP\": clusters, nodes, storages, LXC containers and QEMU virtual machines.",
+	"actions": {
+		"proxmox.list": {
+			"class": "ProxmoxList",
+			"view": "proxmox.list"
+		},
+		"proxmox.view": {
+			"class": "ProxmoxView",
+			"view": "proxmox.view"
+		},
+		"proxmox.panel": {
+			"class": "ProxmoxPanel",
+			"view": "proxmox.panel",
+			"layout": "layout.json"
+		}
+	},
+	"assets": {
+		"css": ["proxmox.css"]
+	}
+}
